@@ -12,6 +12,7 @@ from math import ceil
 import argparse
 import numpy as np
 from scipy import misc, ndimage
+import imageio
 from keras import backend as K
 from keras.models import model_from_json
 import tensorflow as tf
@@ -257,7 +258,7 @@ if __name__ == "__main__":
     K.set_session(sess)
 
     with sess.as_default():
-        img = misc.imread(args.input_path)
+        img = imageio.imread(args.input_path)
         print(args)
 
         if "pspnet50" in args.model:
